@@ -1,5 +1,6 @@
 package com.onclass.technology.infrastructure.entrypoints;
 
+import com.onclass.technology.infrastructure.entrypoints.dto.TechnologyDTO;
 import com.onclass.technology.infrastructure.entrypoints.handler.TechnologyHandlerImpl;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
@@ -25,7 +26,17 @@ public class RouterRest {
                     produces = {"application/json"},
                     beanClass = TechnologyHandlerImpl.class,
                     beanMethod = "create",
-                    operation = @Operation(operationId = "createTechnology", summary = "Registrar tecnología")
+                    operation = @Operation(
+                            operationId = "createTechnology",
+                            summary = "Registrar tecnología",
+                            requestBody = @io.swagger.v3.oas.annotations.parameters.RequestBody(
+                                    description = "Datos de la tecnología a registrar",
+                                    required = true,
+                                    content = @io.swagger.v3.oas.annotations.media.Content(
+                                            schema = @io.swagger.v3.oas.annotations.media.Schema(implementation = TechnologyDTO.class)
+                                    )
+                            )
+                    )
             ),
             @RouterOperation(
                     path = "/technologies",
