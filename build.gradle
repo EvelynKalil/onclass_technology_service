@@ -43,7 +43,7 @@ dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-aop' // enables aspects for resilience4j
 
 	// Swagger / OpenAPI for WebFlux
-	implementation 'org.springdoc:springdoc-openapi-starter-webflux-ui:2.6.0'
+	implementation 'org.springdoc:springdoc-openapi-starter-webflux-ui:2.5.0'
 
 	// Mapping
 	implementation 'org.mapstruct:mapstruct:1.6.0'
@@ -58,6 +58,11 @@ dependencies {
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	testImplementation 'io.projectreactor:reactor-test'
 	testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+
+
+	// Para validaciones en DTOs
+	implementation "org.springframework.boot:spring-boot-starter-validation"
+
 }
 
 dependencyManagement {
